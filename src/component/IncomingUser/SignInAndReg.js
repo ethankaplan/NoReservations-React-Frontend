@@ -36,8 +36,6 @@ class LoginAndRegister extends Component {
             if(parsedResponse.username){
               //console.log(parsedResponse)
                 this.props.doSetCurrentUser(parsedResponse)
-                console.log("logged")
-                alert("LOGGED IN")
                 this.setState({
                   logged: true
                 })

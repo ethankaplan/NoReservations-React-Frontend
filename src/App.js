@@ -9,15 +9,18 @@ import {
   withRouter,
   Redirect
 } from 'react-router-dom'
-import Restaurants from './component/ViewAll/RestaurantList'
-import UserProfile from './component/UserProfile/UserProfile'
-
+import RestAndRes from './component/ViewAll/RestAndRes'
+import {
+  Grid,
+  Image
+} from 'semantic-ui-react'
+import * as routes from './constants/routes'
 class App extends Component {
   state = {
     currentUser: null
   }
 
-  doSetCurrentUser(user) {
+  doSetCurrentUser = (user) => {
     this.setState({
       currentUser: user
     })
@@ -26,27 +29,50 @@ class App extends Component {
 
 
   render() {
-    return ( <
-      div >
-      <
-      NavBar currentUser = {
-        this.state.currentUser
-      }
-      doSetCurrentUser = {
-        this.doSetCurrentUser
-      }
-      doLogout = {
-        null
-      }
-      /> <
-      UserProfile / >
+      return ( <
+          div >
+          <
+          NavBar currentUser = {
+            this.state.currentUser
+          }
+          doSetCurrentUser = {
+            this.doSetCurrentUser
+          }
+          doLogout = {
+            null
+          }
+          /> <
+          Switch >
+          <
+          Route exact path = {
+            routes.HOME
+          }
+          render = {
+            () => < div > HOME < /div>} / >
+            <
+            Route exact path = {
+              routes.USER
+            }
+            render = {
+              () => < div > USER < /div>} / >
+              <
+              Route exact path = {
+                routes.RESTR
+              }
+              render = {
+                () => < RestAndRes / >
+              }
+              /> <
+              Route render = {
+                () => < div > NOT FOUND < /div>} / >
+                <
+                /Switch>
 
 
+                <
+                /div>
+              )
+            };
+          }
 
-      <
-      /div>
-    )
-  };
-}
-
-export default withRouter(App);
+          export default withRouter(App);

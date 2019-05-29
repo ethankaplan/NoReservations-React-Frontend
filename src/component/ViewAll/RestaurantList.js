@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import { Grid } from 'semantic-ui-react'
 import RestaurantItem from './RestaurantItem'
+
 class RestaurantList extends Component{
     state={
         allRests:null
@@ -39,11 +40,11 @@ class RestaurantList extends Component{
     }
         
         return(
-            <Grid celled>
-               
-               {allResults}
             
-            </Grid>
+               <div style={{overflow: 'auto', maxHeight: '98vh' }}>
+               {allResults}
+               </div>
+            
     )
 }
 }
