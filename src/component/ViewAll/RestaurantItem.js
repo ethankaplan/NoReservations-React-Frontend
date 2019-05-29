@@ -4,13 +4,13 @@ class RestItem extends Component{
    
      render(){
     return (
-        
+      <Grid celled>  
     <Grid.Row>
       <Grid.Column width={3}>
         <Image src={`${this.props.img}`} />
       </Grid.Column>
       <Grid.Column width={8}>
-        <h2>{this.props.bane}</h2><br/>
+        <h2>{this.props.name}</h2>
         {this.props.cuisine}<br/>
         {this.props.phone}<br/> 
       </Grid.Column>
@@ -18,7 +18,7 @@ class RestItem extends Component{
         {this.props.address}
       </Grid.Column>
     </Grid.Row>
-    
+    </Grid>
     )}
     
 }
