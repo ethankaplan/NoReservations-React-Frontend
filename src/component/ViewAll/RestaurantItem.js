@@ -7,15 +7,15 @@ class RestItem extends Component{
         
     <Grid.Row>
       <Grid.Column width={3}>
-        <Image src={`${this.props.restaurant.image_url}`} />
+        <Image src={`${this.props.img}`} />
       </Grid.Column>
       <Grid.Column width={8}>
-        <h2>{this.props.restaurant.name}</h2><br/>
-        {this.props.restaurant.cuisine}<br/>
-        {this.props.restaurant.phone}<br/> 
+        <h2>{this.props.bane}</h2><br/>
+        {this.props.cuisine}<br/>
+        {this.props.phone}<br/> 
       </Grid.Column>
       <Grid.Column width={5}>
-        {this.props.restaurant.address}
+        {this.props.address}
       </Grid.Column>
     </Grid.Row>
     

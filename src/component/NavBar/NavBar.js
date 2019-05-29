@@ -19,7 +19,7 @@ class NavBar extends Component{
             <h5>NAVBAR</h5>
             
             <NavLink exact activeClassName="selected" to={routes.HOME}>HOME</NavLink>
-            <NavLink to={routes.USERS} activeClassName="selected">USERS </NavLink>
+            <NavLink to={routes.USERS} activeClassName="selected">My Account </NavLink>
             <NavLink to={routes.POSTS} activeClassName="selected">POSTS </NavLink>
             {
               <IncomingUser/>

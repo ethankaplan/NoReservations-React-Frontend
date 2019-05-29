@@ -1,19 +1,29 @@
 import React, {Component} from 'react';
-import logo from './logo.svg';
 import 'semantic-ui-css/semantic.min.css'
-import DividedIncoming from './component/IncomingUser/SignInAndReg'
 import NavBar from './component/NavBar/NavBar'
 import { Switch, Route,withRouter,Redirect } from 'react-router-dom'
-
+import Restaurants from './component/ViewAll/RestaurantList'
 class App extends Component{
   state={
     currentUser:null
   }
+
+  doSetCurrentUser(user){
+    this.setState({
+      currentUser:user
+    })
+  }
+
+
+
   render(){
     return (
       <div>
-        <NavBar currentUser={this.state.currentUser} doLogout={null}/>
-        
+        <NavBar currentUser={this.state.currentUser} doSetCurrentUser={this.doSetCurrentUser} doLogout={null}/>
+        <Restaurants/>
+
+
+
       </div>
   )};
 }
