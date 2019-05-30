@@ -53,6 +53,7 @@ class EditAccount extends Component {
           <input name="email" onChange={this.handleChange} value={this.state.email}></input>
         </Form.Field>
         <Button type="submit">Submit</Button>
+        <Button onClick={() => this.props.setEditAccount(false)}>Cancel</Button>
       </Form>
     )
   }
