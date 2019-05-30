@@ -1,9 +1,10 @@
 import React, {Component} from 'react'
 import {Card, Image} from 'semantic-ui-react'
-import EditReservationModal from '../UserProfile/EditReservationModal'
+
 
 class ReservationCard extends Component {
   render(){
+    
     const {reservation} = this.props
     return (
       <Card>

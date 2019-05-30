@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import { Card, Icon } from 'semantic-ui-react'
 import Calendar from 'react-calendar';
 import { async } from 'q';
+import ReservationCard from '../ReservationCard/ReservationCard'
 
 class ViewReservations extends Component{
     state={
@@ -50,26 +51,9 @@ class ViewReservations extends Component{
         
             console.log(this.state.allReservations[0])
        
-        allResults = <div><h2>{this.state.allReservations[0].restaurant_id.name}</h2></div>
-        this.state.allReservations.map((res)=>{
+        allResults = this.state.allReservations.map((res)=>{
             
-            return (<div>
-                <Card>
-                    <Card.Content>
-                    <Card.Header>{res.time}</Card.Header>
-                    <Card.Description>
-                        Party size:{res.party_size}
-                    </Card.Description>
-                    </Card.Content>
-                    <Card.Content extra>
-                        <a>
-                            <Icon name='dollar sign' />
-                            {res.price}
-                        </a>
-                    </Card.Content>
-                </Card>
-
-            </div>)
+            return <div style={{overflow:'auto'}} key={`card${res.id}`}><ReservationCard reservation={res} key={res.id}/></div>
            
             
         })

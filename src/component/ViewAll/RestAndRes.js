@@ -9,11 +9,11 @@ class RestAndRes extends Component{
     selected:-1
   }
 
-  sendID=async(id)=>{
-    await this.setState({
+  sendID=(id)=>{
+     this.setState({
       selected:id
     })
-    console.log(id,this.state.selected)
+    
   }
 
 render(){
