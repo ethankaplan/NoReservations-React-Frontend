@@ -9,7 +9,7 @@ class RestaurantList extends Component{
     
     componentDidMount(){
         this.populateRests();
-        console.log("thjrqebgierg")
+       
     }
     
     populateRests=async()=>{
@@ -25,23 +25,20 @@ class RestaurantList extends Component{
 
 
     render(){
-
-
-        
-        console.log(this.state.allRests)
         let allResults=null
         if(this.state.allRests){
         allResults = this.state.allRests.map((rest)=>{
-            return <div><RestaurantItem img={rest.image_url} 
+            return <div onClick={()=>this.props.sendID(rest.id)}><RestaurantItem img={rest.image_url} 
             name={rest.name} cuisine={rest.cuisine} phone={rest.phone}
-            address={rest.address}
+            address={rest.address} key={rest.id}
             /></div>
         })
     }
         
         return(
             
-               <div style={{overflow: 'auto', maxHeight: '98vh' }}>
+               <div style={{overflow: 'auto', maxHeight: '90vh' }}>
+                
                {allResults}
                </div>
             
