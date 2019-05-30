@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import UserReservations from './UserReservations'
 import {Button} from 'semantic-ui-react'
 import EditAccount from '../EditAccount/EditAccount'
+import CreateReservation from '../CreateReservation/CreateReservation'
 
 class UserProfile extends Component {
   state = {
@@ -9,7 +10,12 @@ class UserProfile extends Component {
     soldReservations: [],
     message: '',
     editingAccount: false,
-    editingReservation: false
+    editingReservation: false,
+    creatingReservation: false
+  }
+
+  setCreatingReservation = bool => {
+    this.setState({creatingReservation: bool})
   }
 
   setEditingReservation = bool => {
@@ -20,31 +26,10 @@ class UserProfile extends Component {
     this.setState({editingAccount: bool})
   }
 
-  handleChange = (e, resType, index) => {
-    const newArr = [...this.state[resType]]
-    newArr[index][e.currentTarget.name] = e.currentTarget.value
-    this.setState({[resType]: newArr})
-  }
-
   fetchUserReservations = async () =>{
     const data = await fetch(`http://localhost:9000/api/v1/reservations?user_id=${this.props.user.id}`)
     const parsed_data = await data.json()
     parsed_data.message ? this.setState({message: parsed_data.message}) : this.createReservationState(parsed_data)
-  }
-
-  updateReservation = async (type, index) => {
-    const reservationToUpdate = this.state[type][index]
-    reservationToUpdate.restaurant_id = reservationToUpdate.restaurant_id.id
-    reservationToUpdate.seller_id = reservationToUpdate.seller_id.id
-    reservationToUpdate.current_owner_id = reservationToUpdate.current_owner_id.id
-    const data = await fetch(`http://localhost:9000/api/v1/reservations/${reservationToUpdate.id}`, {
-      method: 'PUT',
-      credentials: 'include',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(reservationToUpdate)
-    })
   }
 
   createReservationState = reservations => {
@@ -57,10 +42,19 @@ class UserProfile extends Component {
     this.fetchUserReservations()
   }
 
+  componentDidUpdate(prevProps, prevState){
+    if ((prevState.editingReservation === true) && (this.state.editingReservation === false)){
+      this.setState({boughtReservations: [],
+      soldReservations: []})
+      this.fetchUserReservations()
+    }
+  }
+
   render(){
     return <div>
       <h1>Welcome {this.props.user ? this.props.user.username : 'stranger'} to your profile page! Isn't it lovely?</h1>
       <Button onClick={() => this.setState({editingAccount: true})}>Edit Account Info</Button>
+      <Button icon='add' onClick={() => this.setState({creatingReservation: true})}></Button>
       {this.state.message.length > 0 ?
       <div>
          {this.state.message}
@@ -68,6 +62,8 @@ class UserProfile extends Component {
       :
       this.state.editingAccount ?
       <EditAccount userId={this.props.user.id} setEditAccount={this.setEditAccount}/> :
+      this.state.creatingReservation ?
+      <CreateReservation userId={this.props.user.id} setCreatingReservation={this.setCreatingReservation}/> :
       <UserReservations setEditingReservation={this.setEditingReservation} boughtReservations={this.state.boughtReservations} soldReservations={this.state.soldReservations}/>
       }
     </div>

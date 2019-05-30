@@ -57,13 +57,18 @@ class EditReservationModal extends Component {
     this.setState({open: false})
   }
 
+  handleClick = () => {
+    this.setState({open: true})
+    this.props.setEditingReservation(true)
+  }
+
   componentDidMount(){
     this.fetchReservation()
   }
 
   render(){
     return (
-      <Modal open={this.state.open} trigger={<Button onClick={() => this.setState({open: true})}>Edit</Button>}>
+      <Modal open={this.state.open} trigger={<Button onClick={this.handleClick}>Edit</Button>}>
         <Modal.Header>Edit your reservation at {this.state.restaurantName}</Modal.Header>
         <Modal.Content image>
           <Image wrapped size='medium' src={this.state.imageURL} />
