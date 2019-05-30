@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { Grid, Image } from 'semantic-ui-react'
-import Restaurants from './RestaurantList'
+import RestaurantList from './RestaurantList'
+import ViewReservations from '../ViewReservations/ViewReservations'
 
 
 class RestAndRes extends Component{
@@ -19,10 +20,10 @@ render(){
   return(
     <Grid columns={2} divided>
       <Grid.Column>
-        <Restaurants sendID={this.sendID}/>
+        <RestaurantList sendID={this.sendID}/>
       </Grid.Column>
       <Grid.Column>
-        TEST
+        <ViewReservations selected={this.state.selected}/>
       </Grid.Column>
       </Grid>
   )

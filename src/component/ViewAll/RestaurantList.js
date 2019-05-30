@@ -25,17 +25,12 @@ class RestaurantList extends Component{
 
 
     render(){
-
-
-        
-       
         let allResults=null
         if(this.state.allRests){
         allResults = this.state.allRests.map((rest)=>{
             return <div onClick={()=>this.props.sendID(rest.id)}><RestaurantItem img={rest.image_url} 
             name={rest.name} cuisine={rest.cuisine} phone={rest.phone}
             address={rest.address} key={rest.id}
-            
             /></div>
         })
     }
@@ -43,6 +38,7 @@ class RestaurantList extends Component{
         return(
             
                <div style={{overflow: 'auto', maxHeight: '90vh' }}>
+                
                {allResults}
                </div>
             
