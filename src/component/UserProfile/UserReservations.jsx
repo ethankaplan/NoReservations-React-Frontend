@@ -14,7 +14,7 @@ class UserReservations extends Component {
           <h2>Reservations Sold</h2>
           <Card.Group>
             {soldReservations.length > 0 ? soldReservations.map((reservation, i) =>
-              <ReservationCard key={i} reservation={reservation} />
+              <ReservationCard setEditingReservation={this.props.setEditingReservation} Reservationkey={i} editable={true} reservation={reservation} />
             )
               : null}
           </Card.Group>

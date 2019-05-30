@@ -8,7 +8,12 @@ class UserProfile extends Component {
     boughtReservations: [],
     soldReservations: [],
     message: '',
-    editingAccount: false
+    editingAccount: false,
+    editingReservation: false
+  }
+
+  setEditingReservation = bool => {
+    this.setState({editingReservation: bool})
   }
 
   setEditAccount = bool => {
@@ -63,7 +68,7 @@ class UserProfile extends Component {
       :
       this.state.editingAccount ?
       <EditAccount userId={this.props.user.id} setEditAccount={this.setEditAccount}/> :
-      <UserReservations boughtReservations={this.state.boughtReservations} soldReservations={this.state.soldReservations}/>
+      <UserReservations setEditingReservation={this.setEditingReservation} boughtReservations={this.state.boughtReservations} soldReservations={this.state.soldReservations}/>
       }
     </div>
   }
