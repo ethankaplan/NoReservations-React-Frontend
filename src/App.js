@@ -29,7 +29,7 @@ class App extends Component {
         <Switch>
           <Route exact path={routes.HOME} render={() => <div> HOME </div>} />
           <Route exact path={routes.USER} render={() => <UserProfile user={this.state.currentUser}/>} />
-          <Route exact path={routes.RESTR} render={() => <RestAndRes />} />{" "}
+          <Route exact path={routes.RESTR} render={() => <RestAndRes currentUser={this.state.currentUser} />} />{" "}
           <Route render={() => <div> NOT FOUND </div>} />
         </Switch>
       </div>

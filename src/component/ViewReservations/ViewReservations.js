@@ -14,7 +14,8 @@ class ViewReservations extends Component{
         this.props.populateReservations()
     }
 
-
+   
+    
 
 
     render(){
@@ -27,7 +28,9 @@ class ViewReservations extends Component{
        
         allResults = this.props.allReservations.map((res)=>{
             
-            return <div style={{overflow:'auto'}} key={`card${res.id}`}><ReservationCard reservation={res} key={res.id}/></div>
+            return <div style={{overflow:'auto', maxWidth:'25vh'}} key={`card${res.id}`}><ReservationCard reservation={res} key={res.id} buyable={true} currentUser={this.props.currentUser}
+            
+            /></div>
            
             
         })

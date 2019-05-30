@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {Card, Image, Button} from 'semantic-ui-react'
 import EditReservationModal from '../UserProfile/EditReservationModal'
+import ConfirmPurchase from './ConfirmPurchase'
 
 
 class ReservationCard extends Component {
@@ -25,8 +26,10 @@ class ReservationCard extends Component {
             :
             null
           }
-          {this.props.buyable ?
-            <Button>Buy</Button>
+          {this.props.buyable&&this.props.currentUser ?
+            <ConfirmPurchase name={reservation.restaurant_id.name} time={reservation.time}
+            date={reservation.date} people={reservation.party_size} bought={this.props.bought} 
+            reservationId={reservation.id} currentUser={this.props.currentUser}/>
             :
             null
           }

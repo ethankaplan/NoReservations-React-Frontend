@@ -24,8 +24,9 @@ class RestAndRes extends Component{
   onDateChange = async(date) => {
     let newDate = date.toISOString();
     newDate=newDate.substring(0,10);
-    await this.setState({ dateString:newDate,
-    date }) 
+    await this.setState({ 
+      dateString:newDate,
+      date }) 
     this.populateReservations()
 }
 
@@ -46,7 +47,7 @@ render(){
         <RestaurantList sendID={this.sendID} populateReservations={this.populateReservations}/>
       </Grid.Column>
       <Grid.Column>
-        <ViewReservations selected={this.state.selected} onDateChange={this.onDateChange} date={this.state.date} allReservations={this.state.allReservations} populateReservations={this.populateReservations}/>
+        <ViewReservations selected={this.state.selected} onDateChange={this.onDateChange} date={this.state.date} allReservations={this.state.allReservations} populateReservations={this.populateReservations} currentUser={this.props.currentUser}/>
       </Grid.Column>
       </Grid>
   )

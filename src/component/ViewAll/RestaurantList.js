@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import { Grid } from 'semantic-ui-react'
 import RestaurantItem from './RestaurantItem'
 
+
 class RestaurantList extends Component{
     state={
         allRests:null
@@ -28,9 +29,10 @@ class RestaurantList extends Component{
         let allResults=null
         if(this.state.allRests){
         allResults = this.state.allRests.map((rest)=>{
-            return <div onClick={()=>this.props.sendID(rest.id)}><RestaurantItem img={rest.image_url} 
+            return <div onClick={()=>this.props.sendID(rest.id)
+           }><RestaurantItem img={rest.image_url} 
             name={rest.name} cuisine={rest.cuisine} phone={rest.phone}
-            address={rest.address} key={rest.id}
+            address={rest.address} key={rest.id} 
             /></div>
         })
     }
