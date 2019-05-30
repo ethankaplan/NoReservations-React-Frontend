@@ -53,6 +53,21 @@ class NavBar extends Component{
             >
             Restaurants
             </Menu.Item></NavLink>
+
+            {
+            this.props.currentUser?
+                <Menu.Item
+                position='right'
+                name='Logout'
+                ><span>LOGOUT</span></Menu.Item>:
+                <Menu.Item
+                    position='right'
+                    name='Login or Register'
+                    onClick={this.handleItemClick}
+                >
+              <IncomingUser doSetCurrentUser={this.props.doSetCurrentUser}/></Menu.Item>
+            }
+
       </Menu>
 
         )
