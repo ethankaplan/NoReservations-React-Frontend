@@ -1,6 +1,4 @@
-import React, {
-  Component
-} from 'react';
+import React, {Component} from 'react';
 import 'semantic-ui-css/semantic.min.css'
 import NavBar from './component/NavBar/NavBar'
 import {
@@ -29,48 +27,24 @@ class App extends Component {
 
 
   render() {
-      return ( <
-          div >
-          <
-          NavBar currentUser = {
-            this.state.currentUser
-          }
+      return ( <div>
+          <NavBar currentUser = {this.state.currentUser}
           doSetCurrentUser = {
             this.doSetCurrentUser
           }
-          doLogout = {
-            null
-          }
-          /> <
-          Switch >
-          <
-          Route exact path = {
-            routes.HOME
-          }
-          render = {
-            () => < div > HOME < /div>} / >
-            <
-            Route exact path = {
-              routes.USER
-            }
-            render = {
-              () => < div > USER < /div>} / >
-              <
-              Route exact path = {
-                routes.RESTR
-              }
-              render = {
-                () => < RestAndRes / >
-              }
-              /> <
-              Route render = {
-                () => < div > NOT FOUND < /div>} / >
-                <
-                /Switch>
+          doLogout = {null}/> 
+          <Switch>
+            <Route exact path = {routes.HOME}
+              render = {() => <div> HOME </div>}/>
+            <Route exact path = {routes.USER}
+              render = {() => <div> USER </div>} />
+            <Route exact path = {routes.RESTR}
+                render = {() => < RestAndRes />}/> 
+              <Route render = {() => <div> NOT FOUND </div>} />
+            </Switch>
 
 
-                <
-                /div>
+                </div>
               )
             };
           }
