@@ -1,7 +1,7 @@
 import React,{Component} from 'react'
 
 import { Button, Divider, Form, Grid, Segment } from 'semantic-ui-react'
-class LoginAndRegister extends Component {
+class SignInAndReg extends Component {
     state = {
         email: '',
         password: '',
@@ -145,4 +145,4 @@ class LoginAndRegister extends Component {
     )}
 }
 
-export default LoginAndRegister
+export default SignInAndReg
