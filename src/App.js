@@ -7,6 +7,8 @@ import { Grid, Image } from "semantic-ui-react";
 import * as routes from "./constants/routes";
 import UserProfile from './component/UserProfile/UserProfile'
 import SignInAndReg from './component/IncomingUser/SignInAndReg'
+import Home from './component/Home/Home'
+
 class App extends Component {
   state = {
     currentUser: null
@@ -33,9 +35,9 @@ class App extends Component {
         
         />{" "}
         <Switch>
-          <Route exact path={routes.HOME} render={() => <div> HOME </div>} />
-          <Route exact path={routes.USER} 
-          render={this.state.currentUser ? 
+          <Route exact path={routes.HOME} render={() => <Home />} />
+          <Route exact path={routes.USER}
+          render={this.state.currentUser ?
             () =><UserProfile user={this.state.currentUser}/>:
             ()=><SignInAndReg doSetCurrentUser={this.doSetCurrentUser}/>
           } />
