@@ -33,6 +33,8 @@ class EditReservationModal extends Component {
       }
     })
     const parsed_data = await data.json()
+    this.props.setEditingReservation(false)
+    this.setState({open: false})
   }
 
   handleChange = (e) => {
@@ -87,6 +89,7 @@ class EditReservationModal extends Component {
             </Form.Field>
             <Button type="submit">Submit</Button>
           </Form>
+          <Button onClick={this.deleteReservation}>Delete Reservation</Button>
         </Modal.Content>
       </Modal>
     )
