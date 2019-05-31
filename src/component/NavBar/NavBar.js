@@ -10,7 +10,19 @@ class NavBar extends Component{
     }
     handleItemClick = (e, { name }) => this.setState({ activeItem: name })
      
-    
+    logout=async()=>{
+        console.log("logout")
+        const logoutResponse = await fetch(`http://localhost:9000/users/logout`,{
+          method: "POST",
+          credentials: 'include',
+          
+          body: JSON.stringify({}),
+          headers: {
+            "Content-Type" : 'application/json'
+          }
+        })
+        this.props.clearCurrentUser()
+    }
     
     
     render(){
@@ -44,7 +56,8 @@ class NavBar extends Component{
                 <Menu.Item
                 position='right'
                 name='Logout'
-                ><span>LOGOUT</span></Menu.Item>:
+                onClick={this.logout}
+                >LOGOUT</Menu.Item>:
                 <Menu.Item
                     position='right'
                     name='Login or Register'
