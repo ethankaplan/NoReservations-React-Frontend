@@ -1,7 +1,5 @@
 import React, {Component} from 'react'
-import { Card, Icon } from 'semantic-ui-react'
 import Calendar from 'react-calendar';
-import { async } from 'q';
 import ReservationCard from '../ReservationCard/ReservationCard'
 
 class ViewReservations extends Component{

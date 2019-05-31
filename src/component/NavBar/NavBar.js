@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import { NavLink } from 'react-router-dom'
-import IncomingUser from '../IncomingUser/IncomingModal'
+import IncomingModal from '../IncomingUser/IncomingModal'
 import * as routes from '../../constants/routes'
 import { Menu } from 'semantic-ui-react'
 
@@ -50,7 +50,7 @@ class NavBar extends Component{
                     name='Login or Register'
                     onClick={this.handleItemClick}
                 >
-              <IncomingUser doSetCurrentUser={this.props.doSetCurrentUser}/></Menu.Item>
+              <IncomingModal doSetCurrentUser={this.props.doSetCurrentUser}/></Menu.Item>
             }
 
       </Menu>
