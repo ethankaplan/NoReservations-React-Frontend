@@ -19,6 +19,11 @@ class App extends Component {
       currentUser: user
     });
   };
+  clearCurrentUser=()=>{
+    this.setState({
+      currentUser:null
+    })
+  }
 
   render() {
     return (
@@ -26,7 +31,8 @@ class App extends Component {
         <NavBar
           currentUser={this.state.currentUser}
           doSetCurrentUser={this.doSetCurrentUser}
-          doLogout={null}
+          clearCurrentUser={this.clearCurrentUser}
+        
         />{" "}
         <Switch>
           <Route exact path={routes.HOME} render={() => <Home />} />
