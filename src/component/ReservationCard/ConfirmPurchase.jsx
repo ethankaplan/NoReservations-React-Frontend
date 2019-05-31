@@ -32,6 +32,7 @@ state={
   }
 
  render(){
+   console.log(this.props.currentUser.id)
    return(
   <Modal trigger={<Button>BUY</Button>} basic size='small' closeIcon>
     <Header icon='dollar' content='Confirm Purchase' />
