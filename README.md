@@ -11,4 +11,4 @@ You can make a user account, add/edit/delete reservations from it. There's a buy
 Made with Python, React, Javascript, Flask, and Hunger.
 
 Link to backend:
-<a href="https://github.com/reactionaryzebra/reactionaryzebra.github.io"> https://github.com/reactionaryzebra/reactionaryzebra.github.io</a>
+<a href="https://github.com/reactionaryzebra/NoReservations-Flask-API"> https://github.com/reactionaryzebra/NoReservations-Flask-API</a>
