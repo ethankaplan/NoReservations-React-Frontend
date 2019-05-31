@@ -29,8 +29,8 @@ class App extends Component {
         <Switch>
           <Route exact path={routes.HOME} render={() => <div> HOME </div>} />
           <Route exact path={routes.USER} 
-          render={this.props.currentUser
-            ? () =><UserProfile user={this.state.currentUser}/>:
+          render={this.state.currentUser ? 
+            () =><UserProfile user={this.state.currentUser}/>:
             ()=><SignInAndReg doSetCurrentUser={this.doSetCurrentUser}/>
           } />
           <Route exact path={routes.RESTR} render={() => <RestAndRes currentUser={this.state.currentUser} />} />{" "}

@@ -1,4 +1,5 @@
 import React,{Component} from 'react'
+import {withRouter} from 'react-router-dom';
 
 import { Button, Divider, Form, Grid, Segment } from 'semantic-ui-react'
 class SignInAndReg extends Component {
@@ -44,6 +45,7 @@ class SignInAndReg extends Component {
                 
               })
             }
+            this.props.history.push(this.props.location)
     }
 
     onRegister = async (e) => {
@@ -58,6 +60,7 @@ class SignInAndReg extends Component {
             headers:{
                 "Content-type" : 'application/json'
             }
+            
         })
     
         const parsedResponse = await registerResponse.json();
@@ -68,6 +71,7 @@ class SignInAndReg extends Component {
                 logged: true,
             })
         }
+        this.props.history.push(this.props.location)
     }
     
 
@@ -145,4 +149,4 @@ class SignInAndReg extends Component {
     )}
 }
 
-export default SignInAndReg
+export default withRouter(SignInAndReg)
