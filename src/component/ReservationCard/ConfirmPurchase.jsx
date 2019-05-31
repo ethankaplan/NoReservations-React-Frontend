@@ -20,7 +20,7 @@ state={
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        current_owner_id: this.props.currentUser,
+        current_owner_id: this.props.currentUser.id,
         is_sold:true
       })
     })
