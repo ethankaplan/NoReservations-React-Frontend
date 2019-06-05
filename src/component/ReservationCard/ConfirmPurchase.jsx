@@ -13,7 +13,7 @@ state={
   handleSubmit = async e => {
     e.preventDefault()
     console.log("here1")
-    const data = await fetch(`http://localhost:9000/api/v1/reservations/${this.props.reservationId}`, {
+    const data = await fetch(`process.env.REACT_APP_BACKEND_URL/api/v1/reservations/${this.props.reservationId}`, {
       method: 'PUT',
       credentials: 'include',
       headers: {

@@ -31,7 +31,7 @@ class RestAndRes extends Component{
 }
 
 populateReservations=async()=>{
-    let getAllReserves = await fetch(`http://localhost:9000/api/v1/reservations?restaurant_id=${this.state.selected}&date=${this.state.dateString}`) ;
+    let getAllReserves = await fetch(`process.env.REACT_APP_BACKEND_URL/api/v1/reservations?restaurant_id=${this.state.selected}&date=${this.state.dateString}`) ;
     
 
     this.setState({

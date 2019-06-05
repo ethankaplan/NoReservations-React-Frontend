@@ -8,7 +8,7 @@ class EditAccount extends Component {
   }
 
   fetchUser = async () => {
-    const data = await fetch(`http://localhost:9000/users/${this.props.userId}`)
+    const data = await fetch(`process.env.REACT_APP_BACKEND_URL/users/${this.props.userId}`)
     const parsedData = await data.json()
     this.setState({
       username: parsedData.username,
@@ -17,7 +17,7 @@ class EditAccount extends Component {
   }
 
   editUser = async () => {
-    const data = await fetch(`http://localhost:9000/users/${this.props.userId}`, {
+    const data = await fetch(`process.env.REACT_APP_BACKEND_URL/users/${this.props.userId}`, {
       method: 'PUT',
       body: JSON.stringify(this.state),
       credentials: 'include',
