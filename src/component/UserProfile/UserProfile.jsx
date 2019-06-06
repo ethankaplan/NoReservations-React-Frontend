@@ -27,7 +27,7 @@ class UserProfile extends Component {
   }
 
   fetchUserReservations = async () =>{
-    const data = await fetch(`process.env.REACT_APP_BACKEND_URL/api/v1/reservations?user_id=${this.props.user.id}`)
+    const data = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/v1/reservations?user_id=${this.props.user.id}`)
     const parsed_data = await data.json()
     parsed_data.message ? this.setState({message: parsed_data.message}) : this.createReservationState(parsed_data)
   }

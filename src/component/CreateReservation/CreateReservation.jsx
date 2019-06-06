@@ -13,7 +13,7 @@ class CreateReservation extends Component {
   }
 
   fetchRestaurants = async () => {
-    const data = await fetch('process.env.REACT_APP_BACKEND_URL/api/v1/restaurants')
+    const data = await fetch('${process.env.REACT_APP_BACKEND_URL}/api/v1/restaurants')
     const parsedData = await data.json()
     parsedData.forEach(restaurant => {
       const newRestaurant = {
@@ -35,7 +35,7 @@ class CreateReservation extends Component {
       price: this.state.price,
       restaurant_id: this.state.restaurantId
     }
-    const data = await fetch('process.env.REACT_APP_BACKEND_URL/api/v1/reservations', {
+    const data = await fetch('${process.env.REACT_APP_BACKEND_URL}/api/v1/reservations', {
       method: 'POST',
       credentials: 'include',
       headers: {

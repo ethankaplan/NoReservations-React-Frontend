@@ -12,7 +12,7 @@ class NavBar extends Component{
      
     logout=async()=>{
         console.log("logout")
-        const logoutResponse = await fetch(`process.env.REACT_APP_BACKEND_URL/users/logout`,{
+        const logoutResponse = await fetch(`${process.env.REACT_APP_BACKEND_URL}/users/logout`,{
           method: "POST",
           credentials: 'include',
           
