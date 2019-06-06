@@ -20,7 +20,7 @@ class SignInAndReg extends Component {
 
     onLogin = async (e) => {
         e.preventDefault();
-        const loginResponse = await fetch(`http://localhost:9000/users/login`,{
+        const loginResponse = await fetch(`process.env.REACT_APP_BACKEND_URL/users/login`,{
           method: "POST",
           credentials: 'include',
           
@@ -50,7 +50,7 @@ class SignInAndReg extends Component {
 
     onRegister = async (e) => {
         e.preventDefault();
-        const registerResponse = await fetch(`http://localhost:9000/users/registration`, {
+        const registerResponse = await fetch(`process.env.REACT_APP_BACKEND_URL/users/registration`, {
             method: 'POST',
             credentials: 'include',
             body: JSON.stringify({username:this.state.NewUsername,

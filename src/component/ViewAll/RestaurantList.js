@@ -19,7 +19,7 @@ class RestaurantList extends Component{
     }
 
     populateRests=async()=>{
-        let getAllRests = await fetch('http://localhost:9000/api/v1/restaurants') ;
+        let getAllRests = await fetch('process.env.REACT_APP_BACKEND_URL/api/v1/restaurants') ;
 
         this.setState({
             allRests:await getAllRests.json()

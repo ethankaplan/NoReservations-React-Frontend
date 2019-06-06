@@ -13,7 +13,7 @@ class EditReservationModal extends Component {
   }
 
   fetchReservation = async () => {
-    const data = await fetch(`http://localhost:9000/api/v1/reservations/${this.props.reservationId}`)
+    const data = await fetch(`process.env.REACT_APP_BACKEND_URL/api/v1/reservations/${this.props.reservationId}`)
     const parsedData = await data.json()
     this.setState({
       price: parsedData.price,
@@ -25,7 +25,7 @@ class EditReservationModal extends Component {
   }
 
   deleteReservation = async () => {
-    const data = await fetch(`http://localhost:9000/api/v1/reservations/${this.props.reservationId}`, {
+    const data = await fetch(`process.env.REACT_APP_BACKEND_URL/api/v1/reservations/${this.props.reservationId}`, {
       method: 'DELETE',
       credentials: 'include',
       headers: {
@@ -43,7 +43,7 @@ class EditReservationModal extends Component {
 
   handleSubmit = async e => {
     e.preventDefault()
-    const data = await fetch(`http://localhost:9000/api/v1/reservations/${this.props.reservationId}`, {
+    const data = await fetch(`process.env.REACT_APP_BACKEND_URL/api/v1/reservations/${this.props.reservationId}`, {
       method: 'PUT',
       credentials: 'include',
       headers: {
