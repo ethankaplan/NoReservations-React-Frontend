@@ -24,7 +24,7 @@ class SignInAndReg extends Component {
       `${process.env.REACT_APP_BACKEND_URL}/users/login`,
       {
         method: "POST",
-        credentials: "include",
+        // credentials: "include",
 
         body: JSON.stringify({
           email: this.state.email,
@@ -58,7 +58,7 @@ class SignInAndReg extends Component {
       `${process.env.REACT_APP_BACKEND_URL}/users/registration`,
       {
         method: "POST",
-        credentials: "include",
+        // credentials: "include",
         body: JSON.stringify({
           username: this.state.NewUsername,
           email: this.state.NewEmail,
